@@ -6,7 +6,7 @@ import {items} from '../store/reducers/budgetReducer'
 
 const BudgetEntryListingScreen = ({navigation}) => {
   const budgetEntries = useSelector(items);  //(state) => state.budgetReducer.
-                       
+                        
   return (
     <View>
       <Text>Budget Entry Listing</Text>
