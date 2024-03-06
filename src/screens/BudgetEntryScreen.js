@@ -13,7 +13,6 @@ const BudgetEntryScreen = ({ navigation }) => {
 
   const handleSave = () => {
     dispatch(addBudgetEntry({ itemName, plannedAmount, actualAmount }));
-    // You can clear the input fields here if needed
     navigation.navigate('BudgetEntryListing');
   };
 
