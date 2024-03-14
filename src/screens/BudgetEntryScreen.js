@@ -1,6 +1,6 @@
 // BudgetEntryScreen.js
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { addBudgetEntry } from '../store/actions/budgetActions';
 import { styles } from '../screens/styles'; // Import styles
@@ -12,6 +12,10 @@ const BudgetEntryScreen = ({ navigation }) => {
   const [actualAmount, setActualAmount] = useState('');
 
   const handleSave = () => {
+    if (!itemName.trim() || !plannedAmount.trim() || !actualAmount.trim()) {
+      Alert.alert('Error', 'Please fill in all fields.');
+      return;
+    }
     dispatch(addBudgetEntry({ itemName, plannedAmount, actualAmount }));
     navigation.navigate('BudgetEntryListing');
   };
